@@ -5,6 +5,11 @@ setInterval(setTimer, 1000);
 
 setInterval(changeBackground, 5000);
 
+
+window.onload = function () {
+    preloadNextImage();
+};
+
 function setTimer() {
     let today = Date.now();
     let difference = arrive - today;
@@ -23,12 +28,21 @@ function setTimer() {
 }
 
 function changeBackground() {
+    document.body.style.backgroundImage = getNextImage()
+    preloadNextImage();
+}
+
+function getNextImage() {
     let actualImage = window.getComputedStyle(document.getElementsByTagName('body')[0]).backgroundImage;
     let num = actualImage.includes('.jpg') ? parseInt(actualImage.substring(actualImage.indexOf('.jpg') - 1, actualImage.indexOf('.jpg'))) : parseInt(actualImage.substring(actualImage.indexOf('.avif') - 1, actualImage.indexOf('.avif')));
-    console.log(typeof num);
     let newNum = num === 8 ? 1 : num + 1;
-    console.log(newNum);
     let newImage = actualImage.replace("photo-" + num.toString(), "photo-" + newNum.toString());
-    console.log(newImage);
-    document.body.style.backgroundImage=newImage;
+    return newImage;
+}
+
+function preloadNextImage() {
+    setTimeout(function () {
+        let nextImage = getNextImage();
+        new Image().src = nextImage.includes(".jpg") ? nextImage.substring(nextImage.indexOf("http"), nextImage.indexOf("jpg") + 3) : nextImage.substring(nextImage.indexOf("http"), nextImage.indexOf("avif") + 4);
+    }, 2500);
 }
