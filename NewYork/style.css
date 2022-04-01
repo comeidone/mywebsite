@@ -1,0 +1,73 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Russo One', sans-serif;
+}
+
+body {
+    background-image: url('./img/desktop/photo-1.jpg');
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    background-position: center;
+    transition: background-image 2s;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-image: url('./img/smartphone/photo-1.avif');
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: center;
+        transition: background-image 2s;
+    }
+  }
+
+#box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0% 10% 10% 10%;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+#textNY{
+    margin-top: -10%;
+    width:90%; 
+    height:90%;
+}
+
+#countdownCointainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.countdown{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#tra{
+    font-size: xx-large;
+    margin-bottom: 10%;
+    text-align: center;
+}
+
+.value{
+    font-size: xx-large;
+    min-width: 43px;
+}
+
+.indicator{
+    font-size: medium;
+}
