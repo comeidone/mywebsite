@@ -18,6 +18,9 @@ body {
         background-image: url('./img/smartphone/photo-1.avif');
         background-repeat: no-repeat;
         background-size: auto 100%;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
         background-position: center;
         transition: background-image 2s;
     }
